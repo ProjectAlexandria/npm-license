@@ -29,10 +29,10 @@ class NPMDependency(
 
 @Entity(name = "license")
 class License(@Id @GeneratedValue var id: Long = 0,
-              var name: String,
+              var name: String? = null,
               var licenseId: String,
-              var url: String,
-              var deprecated: Boolean,
-              var osiApproved: Boolean,
-              var spdx: Boolean
+              var url: String? = null,
+              var deprecated: Boolean? = null,
+              var osiApproved: Boolean? = null,
+              var spdx: Boolean = false,
 )
