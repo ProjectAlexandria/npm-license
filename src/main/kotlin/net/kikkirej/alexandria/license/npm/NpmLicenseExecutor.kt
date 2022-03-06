@@ -31,11 +31,11 @@ class NpmLicenseExecutor(
         try {
             val npmProjectPath = externalTask!!.getVariable<String>("npm_project_path")
             val businessKey = externalTask.businessKey
-            if(!npmDependencyRepository.existDependenciesWithoutLicense(businessKey.toLong())){
-                log.info("For analysis $businessKey no npm-license is missing. Skipping License-Check")
-                externalTaskService!!.complete(externalTask)
-                return
-            }
+//            if(!npmDependencyRepository.existDependenciesWithoutLicense(businessKey.toLong())){
+//                log.info("For analysis $businessKey no npm-license is missing. Skipping License-Check")
+//                externalTaskService!!.complete(externalTask)
+//                return
+//            }//TODO wieder einbauen
             val projectPath = projectPathOf(npmProjectPath, businessKey)
             log.info("Analyzing Project ${projectPath.absolutePath}")
             npmCommandRunner.npmInstall(projectPath)

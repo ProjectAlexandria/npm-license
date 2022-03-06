@@ -11,7 +11,7 @@ interface NPMDependencyRepository : CrudRepository<NPMDependency, Long>{
             "join npd.project np " +
             "join np.analysis a " +
             "where a.id=?1 " +
-            "and license is not null")
+            "and nd.license is not null")
     fun existDependenciesWithoutLicense(analysisId: Long) : Boolean
 
     fun findByName(name: String): Optional<NPMDependency>
